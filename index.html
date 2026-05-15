@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ahmad Khalel | Graphic Designer - Visual Identities & Logos</title>
+    <meta name="description" content="Professional graphic designer specializing in visual identities and logos. I turn your ideas into visual reality with exceptional quality.">
+    <meta name="keywords" content="Graphic Designer, Visual Identity, Logo Design, Branding, Damascus">
+    <meta name="author" content="Ahmad Khalel">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Canvas Background */
+        #interactive-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+        
+        body {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Scroll offset for fixed header */
+        html {
+            scroll-padding-top: 85px;
+            scroll-behavior: smooth;
+        }
+    </style>
+    <canvas id="interactive-bg"></canvas>
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/963964862330" class="floating-wa" target="_blank" id="whatsappFloat">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-tooltip" data-ar="تواصل عبر واتساب" data-en="Contact via WhatsApp">تواصل عبر واتساب</span>
+    </a>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Navbar -->
+    <nav class="ds-navbar">
+        <div class="container">
+            <div class="ds-navbar-content">
+                <div class="ds-logo">
+                    <h2 data-ar="أحمد خليل" data-en="Ahmad Khalel">أحمد خليل</h2>
+                </div>
+                <ul class="ds-nav-links">
+                    <li><a href="#home" class="nav-link-item" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                    <li><a href="#about" class="nav-link-item" data-ar="عنـي" data-en="About">عنـي</a></li>
+                    <li><a href="#portfolio" class="nav-link-item" data-ar="أعمالي" data-en="Portfolio">أعمالي</a></li>
+                    <li><a href="#services" class="nav-link-item" data-ar="خدماتي" data-en="Services">خدماتي</a></li>
+                    <li><a href="#contact" class="nav-link-item" data-ar="تواصل" data-en="Contact">تواصل</a></li>
+                </ul>
+                <div class="ds-actions">
+                    <button id="themeToggle" class="ds-icon-btn">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="langToggle" class="ds-icon-btn">
+                        <span>EN</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="ds-hero">
+            <div class="container">
+                <div class="ds-hero-content">
+                    <div class="ds-hero-text">
+                        <div class="ds-hero-badge" data-ar="✨ مصمم جرافيك مبدع" data-en="✨ Creative Graphic Designer">✨ مصمم جرافيك مبدع</div>
+                        <h1 class="ds-hero-title">
+                            <span data-ar="أُحول أفكارك" data-en="I Turn Your Ideas">أُحول أفكارك</span><br>
+                            <span class="ds-gradient-text" data-ar="إلى واقع مرئي" data-en="Into Visual Reality">إلى واقع مرئي</span>
+                        </h1>
+                        <div class="ds-hero-tagline">
+                            <i class="fas fa-sparkle" style="color: var(--ds-primary);"></i>
+                            <span data-ar="أذهب بمشروعك إلى مكان آخر" data-en="I Take Your Project Somewhere Else">أذهب بمشروعك إلى مكان آخر</span>
+                        </div>
+                        <p class="ds-hero-description" data-ar="بجودة وسرعة احترافية. أقدم تصاميم هويات بصرية وشعارات وإعلانات تجعل علامتك التجارية لا تنسى." data-en="With professional quality and speed. I provide visual identity designs, logos, and ads that make your brand unforgettable.">
+                            بجودة وسرعة احترافية. أقدم تصاميم هويات بصرية وشعارات وإعلانات تجعل علامتك التجارية لا تنسى.
+                        </p>
+                        <div style="display: flex; gap: var(--ds-spacing-sm); flex-wrap: wrap;">
+                            <a href="#portfolio" class="ds-btn ds-btn-primary">
+                                <i class="fas fa-images"></i>
+                                <span data-ar="استعرض أعمالي" data-en="View My Work">استعرض أعمالي</span>
+                            </a>
+                            <a href="#contact" class="ds-btn ds-btn-secondary">
+                                <i class="fas fa-comment"></i>
+                                <span data-ar="تواصل معي" data-en="Contact Me">تواصل معي</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ds-hero-image floating-head">
+                        <div class="image-frame">
+                            <div class="image-overlay"></div>
+                            <img src="images/ahmad.png" alt="Ahmad Khalel" id="profileImage">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="ds-section">
+            <div class="container">
+                <div class="ds-section-header">
+                    <div class="ds-section-tag" data-ar="📖 تعرف علي" data-en="📖 About Me">📖 تعرف علي</div>
+                    <h2 class="ds-section-title" data-ar="نبذة عني" data-en="About Me">نبذة عني</h2>
+                    <p class="ds-section-subtitle" data-ar="أحمد خليل، مصمم جرافيك مع 3 سنوات من الخبرة" data-en="Ahmad Khalel, Graphic Designer with 3 years of experience">أحمد خليل، مصمم جرافيك مع 3 سنوات من الخبرة</p>
+                </div>
+                
+                <div class="ds-grid">
+                    <div class="ds-card">
+                        <div class="ds-card-icon"><i class="fas fa-bolt"></i></div>
+                        <h3 data-ar="السرعة والالتزام" data-en="Speed & Commitment">السرعة والالتزام</h3>
+                        <p data-ar="أضع سرعة التنفيذ مع الحفاظ على الجودة في مقدمة أولوياتي." data-en="I prioritize execution speed while maintaining quality.">أضع سرعة التنفيذ مع الحفاظ على الجودة في مقدمة أولوياتي.</p>
+                    </div>
+                    <div class="ds-card">
+                        <div class="ds-card-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3 data-ar="فهم الفكرة" data-en="Understanding the Idea">فهم الفكرة</h3>
+                        <p data-ar="أتعمق في فكرتك لأخرج بتصميم يخدم هدفك." data-en="I dive deep into your idea to create a design that serves your goal.">أتعمق في فكرتك لأخرج بتصميم يخدم هدفك.</p>
+                    </div>
+                    <div class="ds-card">
+                        <div class="ds-card-icon"><i class="fas fa-heart"></i></div>
+                        <h3 data-ar="الشغف بالعمل" data-en="Passion for Work">الشغف بالعمل</h3>
+                        <p data-ar="أتلاعب مع كل مشروع كأنه تحدي إبداعي جديد." data-en="I approach each project as a new creative challenge.">أتلاعب مع كل مشروع كأنه تحدي إبداعي جديد.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="ds-section" style="background: rgba(108, 43, 217, 0.02);">
+            <div class="container">
+                <div class="ds-section-header">
+                    <div class="ds-section-tag" data-ar="🎨 معرض أعمالي" data-en="🎨 My Gallery">🎨 معرض أعمالي</div>
+                    <h2 class="ds-section-title" data-ar="أحدث مشاريعي" data-en="Latest Projects">أحدث مشاريعي</h2>
+                    <p class="ds-section-subtitle" data-ar="نظرة على بعض المشاريع التي قمت بتصميمها" data-en="A look at some of the projects I've designed">نظرة على بعض المشاريع التي قمت بتصميمها</p>
+                </div>
+                <div class="ds-grid">
+                    <div class="ds-portfolio-card">
+                        <div class="ds-portfolio-media">
+                            <i class="fas fa-school ds-portfolio-icon"></i>
+                        </div>
+                        <div class="ds-portfolio-content">
+                            <div class="ds-portfolio-type" data-ar="هوية بصرية + موقع" data-en="Visual Identity + Website">هوية بصرية + موقع</div>
+                            <h3 data-ar="ثانوية زيد بن حارثة الشرعية" data-en="Zaid bin Harithah School">ثانوية زيد بن حارثة الشرعية</h3>
+                            <p data-ar="تصميم هوية بصرية متكاملة وبناء موقع ZaydbnHarithah.sy" data-en="Complete visual identity design and website ZaydbnHarithah.sy">تصميم هوية بصرية متكاملة وبناء موقع ZaydbnHarithah.sy</p>
+                            <a href="#" class="ds-btn ds-btn-secondary" style="padding: 6px 16px; margin-top: var(--ds-spacing-xs); font-size: 0.75rem;"><span data-ar="زيارة الموقع" data-en="Visit Website">زيارة الموقع</span> →</a>
+                        </div>
+                    </div>
+                    <div class="ds-portfolio-card">
+                        <div class="ds-portfolio-media">
+                            <i class="fas fa-school ds-portfolio-icon"></i>
+                        </div>
+                        <div class="ds-portfolio-content">
+                            <div class="ds-portfolio-type" data-ar="هوية بصرية" data-en="Visual Identity">هوية بصرية</div>
+                            <h3 data-ar="ثانوية زينب بنت خزيمة الشرعية" data-en="Zainab bint Khuzaimah School">ثانوية زينب بنت خزيمة الشرعية</h3>
+                            <p data-ar="تصميم هوية بصرية احترافية تعكس قيم المؤسسة التعليمية" data-en="Professional visual identity reflecting educational values">تصميم هوية بصرية احترافية تعكس قيم المؤسسة التعليمية</p>
+                        </div>
+                    </div>
+                    <div class="ds-portfolio-card">
+                        <div class="ds-portfolio-media">
+                            <i class="fas fa-mosque ds-portfolio-icon"></i>
+                        </div>
+                        <div class="ds-portfolio-content">
+                            <div class="ds-portfolio-type" data-ar="منشورات وتصاميم" data-en="Publications & Designs">منشورات وتصاميم</div>
+                            <h3 data-ar="معهد عين التينة لتحفيظ القرآن" data-en="Ain Al-Tinah Quran Institute">معهد عين التينة لتحفيظ القرآن</h3>
+                            <p data-ar="تصميم جميع المنشورات الدعوية والتعليمية للمعهد" data-en="Designing all promotional and educational publications">تصميم جميع المنشورات الدعوية والتعليمية للمعهد</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="ds-section">
+            <div class="container">
+                <div class="ds-section-header">
+                    <div class="ds-section-tag" data-ar="⚡ ماذا أقدم" data-en="⚡ What I Offer">⚡ ماذا أقدم</div>
+                    <h2 class="ds-section-title" data-ar="خدماتي الاحترافية" data-en="My Professional Services">خدماتي الاحترافية</h2>
+                    <p class="ds-section-subtitle" data-ar="أقدم مجموعة متكاملة من خدمات التصميم" data-en="I offer a complete range of design services">أقدم مجموعة متكاملة من خدمات التصميم</p>
+                </div>
+                <div class="ds-grid">
+                    <div class="ds-card"><div class="ds-card-icon"><i class="fas fa-palette"></i></div><h3 data-ar="الهويات البصرية" data-en="Visual Identities">الهويات البصرية</h3><p data-ar="هوية بصرية متكاملة تعكس شخصية علامتك التجارية." data-en="Complete visual identity that reflects your brand's personality.">هوية بصرية متكاملة تعكس شخصية علامتك التجارية.</p></div>
+                    <div class="ds-card"><div class="ds-card-icon"><i class="fas fa-trademark"></i></div><h3 data-ar="تصميم الشعارات" data-en="Logo Design">تصميم الشعارات</h3><p data-ar="شعارات احترافية تعبر عن هويتك." data-en="Professional logos that express your identity.">شعارات احترافية تعبر عن هويتك.</p></div>
+                    <div class="ds-card"><div class="ds-card-icon"><i class="fas fa-ad"></i></div><h3 data-ar="الإعلانات والبوسترات" data-en="Ads & Posters">الإعلانات والبوسترات</h3><p data-ar="تصاميم إعلانية جذابة تنقل رسالتك." data-en="Attractive ad designs that convey your message.">تصاميم إعلانية جذابة تنقل رسالتك.</p></div>
+                    <div class="ds-card"><div class="ds-card-icon"><i class="fas fa-folder-open"></i></div><h3 data-ar="البورتوفوليو الاحترافي" data-en="Professional Portfolio">البورتوفوليو الاحترافي</h3><p data-ar="تصميم بروتوفوليو يعرض أعمالك بأسلوب احترافي." data-en="Portfolio design that showcases your work professionally.">تصميم بروتوفوليو يعرض أعمالك بأسلوب احترافي.</p></div>
+                    <div class="ds-card"><div class="ds-card-icon"><i class="fas fa-video"></i></div><h3 data-ar="المونتاج الاحترافي" data-en="Professional Editing">المونتاج الاحترافي</h3><p data-ar="مونتاج فيديو باستخدام DaVinci Resolve و CapCut." data-en="Video editing using DaVinci Resolve and CapCut.">مونتاج فيديو باستخدام DaVinci Resolve و CapCut.</p></div>
+                    <div class="ds-card"><div class="ds-card-icon"><i class="fas fa-code"></i></div><h3 data-ar="مواقع شخصية" data-en="Personal Websites">مواقع شخصية</h3><p data-ar="إنشاء موقع شخصي احترافي يعرض أعمالك." data-en="Creating professional personal websites to showcase your work.">إنشاء موقع شخصي احترافي يعرض أعمالك.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Me Section -->
+        <section style="padding: var(--ds-spacing-2xl) 0; background: rgba(108, 43, 217, 0.02);">
+            <div class="container">
+                <div class="ds-section-header">
+                    <div class="ds-section-tag" data-ar="💎 لماذا أنا" data-en="💎 Why Me">💎 لماذا أنا</div>
+                    <h2 class="ds-section-title" data-ar="ما يميزني" data-en="What Makes Me Different">ما يميزني</h2>
+                </div>
+                <div class="ds-feature-grid">
+                    <div class="ds-feature-card"><i class="fas fa-calendar-check ds-feature-icon"></i><h3 data-ar="ميتينغ كول" data-en="Meeting Call">ميتينغ كول</h3><p data-ar="أبدأ معك بميتينغ كول لأفهم جميع متطلباتك بدقة." data-en="I start with a meeting call to understand your requirements precisely.">أبدأ معك بميتينغ كول لأفهم جميع متطلباتك بدقة.</p></div>
+                    <div class="ds-feature-card"><i class="fas fa-file-alt ds-feature-icon"></i><h3 data-ar="جميع الصيغ المطلوبة" data-en="All Required Formats">جميع الصيغ المطلوبة</h3><p data-ar="أرسل لك المشروع بجميع الصيغ المطلوبة للاستخدام." data-en="I send you the project in all required formats.">أرسل لك المشروع بجميع الصيغ المطلوبة للاستخدام.</p></div>
+                    <div class="ds-feature-card"><i class="fas fa-hand-holding-heart ds-feature-icon"></i><h3 data-ar="مشروعي الخاص" data-en="Like My Own Project">مشروعي الخاص</h3><p data-ar="أتعهد مشروعك وكأنه مشروعي الخاص." data-en="I treat your project as if it were my own.">أتعهد مشروعك وكأنه مشروعي الخاص.</p></div>
+                    <div class="ds-feature-card"><i class="fas fa-gift ds-feature-icon"></i><h3 data-ar="خصم العملاء المتكررين" data-en="Returning Client Discount">خصم العملاء المتكررين</h3><p data-ar="خصم خاص للعملاء الذين يطلبون خدماتنا مرة أخرى." data-en="Special discount for returning clients.">خصم خاص للعملاء الذين يطلبون خدماتنا مرة أخرى.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section style="padding: var(--ds-spacing-2xl) 0;">
+            <div class="container">
+                <div class="ds-tools">
+                    <h3 data-ar="🛠️ البرامج التي أستخدمها" data-en="🛠️ Tools I Use">🛠️ البرامج التي أستخدمها</h3>
+                    <div class="ds-chips">
+                        <span class="ds-chip"><i class="fas fa-bezier-curve"></i> Affinity</span>
+                        <span class="ds-chip"><i class="fas fa-pen-fancy"></i> Canva</span>
+                        <span class="ds-chip"><i class="fas fa-film"></i> DaVinci Resolve</span>
+                        <span class="ds-chip"><i class="fas fa-cut"></i> CapCut</span>
+                    </div>
+                    <p data-ar="أقدم جودة احترافية تضاهي برامج Adobe، بنتائج تفوق التوقعات" data-en="I deliver professional quality comparable to Adobe software, with results that exceed expectations">أقدم جودة احترافية تضاهي برامج Adobe، بنتائج تفوق التوقعات</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section style="padding: 0 0 var(--ds-spacing-2xl) 0;">
+            <div class="container">
+                <div class="ds-stats">
+                    <div class="ds-stats-grid">
+                        <div><div class="ds-stat-value">8+</div><p data-ar="مشاريع مميزة" data-en="Projects">مشاريع مميزة</p></div>
+                        <div><div class="ds-stat-value">3</div><p data-ar="سنوات خبرة" data-en="Years Exp.">سنوات خبرة</p></div>
+                        <div><div class="ds-stat-value">15+</div><p data-ar="عميل سعيد" data-en="Happy Clients">عميل سعيد</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="padding: 0 0 var(--ds-spacing-2xl) 0;">
+            <div class="container">
+                <div class="ds-section-header">
+                    <div class="ds-section-tag" data-ar="📬 تواصل معي" data-en="📬 Contact Me">📬 تواصل معي</div>
+                    <h2 class="ds-section-title" data-ar="هل لديك مشروع؟" data-en="Have a Project?">هل لديك مشروع؟</h2>
+                    <p class="ds-section-subtitle" data-ar="لنعمل معاً على مشروعك القادم" data-en="Let's work together on your next project">لنعمل معاً على مشروعك القادم</p>
+                </div>
+                <div class="ds-contact-grid">
+                    <div class="ds-contact-methods">
+                        <div class="ds-contact-bubble"><i class="fab fa-whatsapp" style="font-size: 1.5rem; color: #25D366;"></i><div><strong>WhatsApp</strong><br><span id="whatsappDisplay">+963 964 862 330</span></div></div>
+                        <div class="ds-contact-bubble"><i class="fab fa-telegram" style="font-size: 1.5rem; color: #26A5E4;"></i><div><strong>Telegram</strong><br><span id="telegramDisplay">@AhmadKhalel</span></div></div>
+                        <div class="ds-contact-bubble"><i class="fab fa-instagram" style="font-size: 1.5rem; color: #E4405F;"></i><div><strong>Instagram</strong><br><span id="instagramDisplay">@Ahmad.J.Khalel</span></div></div>
+                        <div class="ds-contact-bubble"><i class="fab fa-facebook" style="font-size: 1.5rem; color: #1877F2;"></i><div><strong>Facebook</strong><br><span id="facebookDisplay">@Ahmad.J.Khalel</span></div></div>
+                        <div class="ds-contact-bubble"><i class="fab fa-twitter" style="font-size: 1.5rem; color: #1DA1F2;"></i><div><strong>X (Twitter)</strong><br><span id="twitterDisplay">@AhmadJKhalel</span></div></div>
+                        <div class="ds-contact-bubble"><i class="fab fa-youtube" style="font-size: 1.5rem; color: #FF0000;"></i><div><strong>YouTube</strong><br><span id="youtubeDisplay">@AhmadJKhalel</span></div></div>
+                    </div>
+                    <form class="ds-form" id="contactForm">
+                        <input type="text" class="ds-input" data-ar-placeholder="الاسم الكامل" data-en-placeholder="Full Name" placeholder="الاسم الكامل" required>
+                        <input type="email" class="ds-input" data-ar-placeholder="البريد الإلكتروني" data-en-placeholder="Email Address" placeholder="البريد الإلكتروني" required>
+                        <input type="tel" class="ds-input" data-ar-placeholder="رقم الهاتف (اختياري)" data-en-placeholder="Phone Number (Optional)" placeholder="رقم الهاتف (اختياري)">
+                        <textarea rows="4" class="ds-input" data-ar-placeholder="تفاصيل المشروع..." data-en-placeholder="Project Details..." placeholder="تفاصيل المشروع..." required></textarea>
+                        <button type="submit" class="ds-btn ds-btn-primary" style="width: 100%; justify-content: center;">
+                            <span data-ar="أرسل رسالتك" data-en="Send Message">أرسل رسالتك</span> <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="ds-footer">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--ds-spacing-md);">
+                <div>
+                    <h3 data-ar="أحمد خليل" data-en="Ahmad Khalel">أحمد خليل</h3>
+                    <p data-ar="مصمم جرافيك متخصص بالهويات البصرية واللوجو" data-en="Graphic Designer specializing in visual identities and logos">مصمم جرافيك متخصص بالهويات البصرية واللوجو</p>
+                </div>
+                <div style="display: flex; gap: var(--ds-spacing-lg); flex-wrap: wrap;">
+                    <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+                    <a href="#portfolio" data-ar="أعمالي" data-en="Portfolio">أعمالي</a>
+                    <a href="#services" data-ar="خدماتي" data-en="Services">خدماتي</a>
+                    <a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a>
+                </div>
+                <div>
+                    <p data-ar="جميع الحقوق محفوظة © 2024 أحمد خليل" data-en="All Rights Reserved © 2024 Ahmad Khalel">جميع الحقوق محفوظة © 2024 أحمد خليل</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="background.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
