@@ -2,7 +2,6 @@
 const themeToggle = document.getElementById('themeToggle');
 const savedDarkMode = localStorage.getItem('darkMode');
 
-// Apply saved theme on load
 if (savedDarkMode === 'true') {
     document.body.classList.add('dark');
     if (themeToggle) {
@@ -99,13 +98,15 @@ function switchToArabic() {
 }
 
 const langToggle = document.getElementById('langToggle');
-langToggle.addEventListener('click', () => {
-    if (isArabic) {
-        switchToEnglish();
-    } else {
-        switchToArabic();
-    }
-});
+if (langToggle) {
+    langToggle.addEventListener('click', () => {
+        if (isArabic) {
+            switchToEnglish();
+        } else {
+            switchToArabic();
+        }
+    });
+}
 
 const savedLanguage = localStorage.getItem('language');
 if (savedLanguage === 'en') {
@@ -163,12 +164,6 @@ navButtons.forEach(btn => {
                 top: targetPosition,
                 behavior: 'smooth'
             });
-            
-            target.style.transition = 'all 0.3s ease';
-            target.style.boxShadow = '0 0 0 3px rgba(108, 43, 217, 0.5)';
-            setTimeout(() => {
-                target.style.boxShadow = '';
-            }, 800);
         }
     });
 });
@@ -188,36 +183,41 @@ scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ========== SECTION REVEAL ON SCROLL ==========
-const sections = document.querySelectorAll('.ds-section, .ds-hero, #contact, .ds-stats, .ds-tools');
+// ========== SECTION REVEAL ON SCROLL + ANIMATED UNDERLINE ==========
+const sections = document.querySelectorAll('.ds-section');
+const animatedUnderlines = document.querySelectorAll('.animated-underline');
 
 const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            
+            const title = entry.target.querySelector('.animated-underline');
+            if (title) {
+                title.classList.add('reveal');
+            }
         }
     });
 }, observerOptions);
 
 sections.forEach(section => {
-    if (!section.classList.contains('ds-section')) {
-        section.classList.add('ds-section');
-    }
     sectionObserver.observe(section);
 });
 
-document.querySelector('.ds-hero')?.classList.add('visible');
+animatedUnderlines.forEach(underline => {
+    underline.classList.add('animated-underline');
+});
 
 // ========== UPDATE CONTACT LINKS ==========
 const updateContactLinks = () => {
     const whatsappSpan = document.getElementById('whatsappDisplay');
     if (whatsappSpan) {
-        whatsappSpan.innerHTML = '<a href="https://wa.me/963964682330" target="_blank" style="color: var(--ds-primary); text-decoration: none;">+963 964 682 330</a>';
+        whatsappSpan.innerHTML = '<a href="https://wa.me/963964862330" target="_blank" style="color: var(--ds-primary); text-decoration: none;">+963 964 862 330</a>';
     }
     
     const telegramSpan = document.getElementById('telegramDisplay');
@@ -237,7 +237,7 @@ const updateContactLinks = () => {
     
     const twitterSpan = document.getElementById('twitterDisplay');
     if (twitterSpan) {
-        twitterSpan.innerHTML = '<a href="https://twitter.com/AhmadJKhalel" target="_blank" style="color: var(--ds-primary); text-decoration: none;">@AhmadJKhalel</a>';
+        twitterSpan.innerHTML = '<a href="https://x.com/AhmadJKhalel" target="_blank" style="color: var(--ds-primary); text-decoration: none;">@AhmadJKhalel</a>';
     }
     
     const youtubeSpan = document.getElementById('youtubeDisplay');
@@ -246,16 +246,37 @@ const updateContactLinks = () => {
     }
 };
 
-// ========== FORM SUBMISSION ==========
+// ========== EMAILJS FORM SUBMISSION ==========
+// Initialize EmailJS - Replace with your actual keys
+emailjs.init("YOUR_PUBLIC_KEY");
+
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const message = isArabic ? 
-            '✨ تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.' : 
-            '✨ Message sent successfully! I will contact you soon.';
-        alert(message);
-        contactForm.reset();
+        
+        const formData = {
+            name: document.getElementById('userName')?.value || '',
+            email: document.getElementById('userEmail')?.value || '',
+            phone: document.getElementById('userPhone')?.value || '',
+            message: document.getElementById('userMessage')?.value || '',
+        };
+        
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+            .then(() => {
+                const successMessage = isArabic ? 
+                    '✨ تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.' : 
+                    '✨ Message sent successfully! I will contact you soon.';
+                alert(successMessage);
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error('EmailJS Error:', error);
+                const errorMessage = isArabic ? 
+                    '❌ حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى أو التواصل عبر الواتساب.' : 
+                    '❌ An error occurred. Please try again or contact via WhatsApp.';
+                alert(errorMessage);
+            });
     });
 }
 
@@ -304,7 +325,6 @@ function addMobileMenuButton() {
     }
 }
 
-// Close mobile menu on outside click or scroll
 function closeMobileMenu() {
     if (window.innerWidth <= 900) {
         const navLinks = document.querySelector('.ds-nav-links');
@@ -335,7 +355,6 @@ document.addEventListener('click', function(event) {
 window.addEventListener('scroll', closeMobileMenu);
 window.addEventListener('orientationchange', () => setTimeout(closeMobileMenu, 100));
 
-// Handle resize events
 let resizeTimer;
 window.addEventListener('resize', function() {
     clearTimeout(resizeTimer);
@@ -355,8 +374,15 @@ window.addEventListener('resize', function() {
     }, 100);
 });
 
-// Initialize
+// ========== INITIALIZE AOS ANIMATION ==========
+AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100,
+    easing: 'ease-out-cubic'
+});
+
 addMobileMenuButton();
 updateContactLinks();
 
-console.log('🚀 Website loaded successfully!');
+console.log('🚀 Ahmad Khalel Website loaded successfully!');
