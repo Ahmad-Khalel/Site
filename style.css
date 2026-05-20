@@ -1,6 +1,5 @@
 /* DeepSeek Design System - Liquid Glass with Colorful Background */
 :root {
-    /* DeepSeek Colors */
     --ds-primary: #6C2BD9;
     --ds-primary-light: #8A559A;
     --ds-primary-dark: #4A1D96;
@@ -11,13 +10,11 @@
     --ds-pink: #FF6B9D;
     --ds-cyan: #00D2FF;
     
-    /* Glass Effects */
     --ds-glass-blur: blur(20px);
     --ds-glass-bg-light: rgba(255, 255, 255, 0.75);
     --ds-glass-bg-dark: rgba(10, 10, 15, 0.75);
     --ds-glass-border: rgba(108, 43, 217, 0.15);
     
-    /* Spacing */
     --ds-spacing-xs: 8px;
     --ds-spacing-sm: 12px;
     --ds-spacing-md: 20px;
@@ -25,7 +22,6 @@
     --ds-spacing-xl: 48px;
     --ds-spacing-2xl: 64px;
     
-    /* Radius */
     --ds-radius-sm: 8px;
     --ds-radius-md: 12px;
     --ds-radius-lg: 20px;
@@ -33,13 +29,11 @@
     --ds-radius-2xl: 36px;
     --ds-radius-full: 9999px;
     
-    /* Shadows */
     --ds-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
     --ds-shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
     --ds-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
     --ds-shadow-glow: 0 0 30px rgba(108, 43, 217, 0.25);
     
-    /* Transitions */
     --ds-transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
@@ -58,7 +52,6 @@ body {
     position: relative;
 }
 
-/* Dark Mode - Colorful too! */
 body.dark {
     background: linear-gradient(135deg, #0A0A0F 0%, #1A0A2E 50%, #0A1A2E 100%);
     color: #EDEDF0;
@@ -70,10 +63,13 @@ body.dark {
     padding: 0 var(--ds-spacing-md);
 }
 
-/* Scroll offset for fixed header */
 html {
     scroll-padding-top: 85px;
     scroll-behavior: smooth;
+}
+
+section:focus, section:active {
+    outline: none;
 }
 
 /* ========== FLOATING WHATSAPP BUTTON ========== */
@@ -161,7 +157,7 @@ html {
     transform: scale(0.95);
 }
 
-/* ========== NAVBAR - شفاف بالكامل بدون تغيير عند التمرير ========== */
+/* ========== NAVBAR ========== */
 .ds-navbar {
     position: fixed;
     top: 0;
@@ -174,18 +170,13 @@ html {
     border-bottom: none;
 }
 
-/* إزالة أي تغيير عند التمرير - يبقى شفافاً كما هو */
 .ds-navbar.scrolled {
     background: transparent;
     backdrop-filter: none;
     border-bottom: none;
 }
 
-body.dark .ds-navbar {
-    background: transparent;
-    border-bottom: none;
-}
-
+body.dark .ds-navbar,
 body.dark .ds-navbar.scrolled {
     background: transparent;
     border-bottom: none;
@@ -198,12 +189,12 @@ body.dark .ds-navbar.scrolled {
     height: 72px;
 }
 
-/* ========== اللوجو (أحمد خليل) بنفس شكل الأزرار الجميلة ========== */
+/* Logo */
 .ds-logo h2 {
     font-size: 0.875rem;
     font-weight: 500;
     background: rgba(108, 43, 217, 0.1);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
     padding: 8px 20px;
     border-radius: 40px;
     display: inline-block;
@@ -219,13 +210,16 @@ body.dark .ds-logo h2 {
     color: #A0A0B0;
 }
 
-/* ========== الأزرار العلوية (الجميلة) ========== */
+/* Navigation Buttons */
 .ds-nav-links {
     display: flex;
     gap: 8px;
     list-style: none;
-    padding: 0;
+    padding: 6px;
     margin: 0;
+    background: rgba(108, 43, 217, 0.08);
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
 }
 
 .ds-nav-links a {
@@ -236,15 +230,11 @@ body.dark .ds-logo h2 {
     border-radius: 40px;
     color: #5A5A72;
     transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(108, 43, 217, 0.15);
+    background: transparent;
 }
 
 body.dark .ds-nav-links a {
     color: #A0A0B0;
-    background: rgba(20, 20, 35, 0.5);
-    border-color: rgba(108, 43, 217, 0.25);
 }
 
 .ds-nav-links a:hover {
@@ -257,10 +247,15 @@ body.dark .ds-nav-links a {
     background: linear-gradient(135deg, var(--ds-primary), var(--ds-secondary));
     color: white;
     box-shadow: 0 2px 8px rgba(108, 43, 217, 0.3);
-    border: none;
 }
 
-/* ========== أزرار اللغة والثيم بنفس شكل الأزرار ========== */
+body.dark .ds-nav-links a.active {
+    background: linear-gradient(135deg, #9D4EDD, #4A90E2);
+    color: white;
+    box-shadow: 0 2px 12px rgba(157, 78, 221, 0.4);
+}
+
+/* Action Buttons */
 .ds-actions {
     display: flex;
     gap: 8px;
@@ -300,6 +295,74 @@ body.dark .ds-icon-btn:hover {
     color: var(--ds-primary-light);
 }
 
+/* ========== NEWS TICKER ========== */
+.news-ticker {
+    display: flex;
+    align-items: center;
+    background: rgba(108, 43, 217, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+    padding: 8px 16px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(108, 43, 217, 0.12);
+}
+
+.ticker-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--ds-primary), var(--ds-secondary));
+    padding: 6px 16px;
+    border-radius: 40px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.ticker-label i {
+    font-size: 0.9rem;
+}
+
+.ticker-wrapper {
+    flex: 1;
+    overflow: hidden;
+    margin-right: 16px;
+}
+
+.ticker-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: tickerScroll 20s linear infinite;
+}
+
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px;
+    color: var(--ds-text-secondary);
+    font-size: 0.85rem;
+}
+
+.ticker-item i {
+    color: var(--ds-primary);
+    font-size: 0.8rem;
+}
+
+@keyframes tickerScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.ticker-wrapper:hover .ticker-track {
+    animation-play-state: paused;
+}
+
 /* ========== HERO SECTION ========== */
 .ds-hero {
     padding: 0;
@@ -323,6 +386,12 @@ body.dark .ds-icon-btn:hover {
 
 .ds-hero-text {
     flex: 1;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--ds-spacing-sm);
+    flex-wrap: wrap;
 }
 
 /* Floating Head Effect */
@@ -511,14 +580,7 @@ body.dark .ds-card:hover {
 /* Section Styles */
 .ds-section {
     padding: var(--ds-spacing-2xl) 0;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.ds-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+    margin-bottom: var(--ds-spacing-md);
 }
 
 .ds-section-header {
@@ -646,25 +708,6 @@ body.dark .ds-card:hover {
     border: 1px solid rgba(108, 43, 217, 0.12);
 }
 
-.ds-chips {
-    display: flex;
-    justify-content: center;
-    gap: var(--ds-spacing-sm);
-    flex-wrap: wrap;
-    margin: var(--ds-spacing-lg) 0;
-}
-
-.ds-chip {
-    background: rgba(108, 43, 217, 0.1);
-    padding: 8px 20px;
-    border-radius: var(--ds-radius-full);
-    font-size: 0.875rem;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--ds-spacing-xs);
-}
-
 /* Stats */
 .ds-stats {
     background: linear-gradient(135deg, var(--ds-primary), var(--ds-secondary), var(--ds-pink));
@@ -749,61 +792,114 @@ body.dark .ds-input {
     color: #EDEDF0;
 }
 
+/* Email Box */
+.email-box {
+    margin-top: var(--ds-spacing-md);
+    padding: var(--ds-spacing-md);
+    background: rgba(108, 43, 217, 0.08);
+    border-radius: var(--ds-radius-lg);
+    text-align: center;
+    border: 1px solid rgba(108, 43, 217, 0.15);
+}
+
+.email-box a {
+    color: var(--ds-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--ds-transition);
+}
+
+.email-box a:hover {
+    text-decoration: underline;
+}
+
 /* Footer */
 .ds-footer {
-    border-top: 1px solid rgba(108, 43, 217, 0.15);
-    padding: var(--ds-spacing-xl) 0;
+    background: linear-gradient(135deg, #1A1A2E, #16213E);
+    border-top: none;
+    padding: var(--ds-spacing-xl) 0 var(--ds-spacing-lg);
     margin-top: var(--ds-spacing-xl);
-    backdrop-filter: var(--ds-glass-blur);
-    background: rgba(255, 255, 255, 0.6);
+    color: white;
 }
 
 body.dark .ds-footer {
-    background: rgba(10, 10, 15, 0.6);
+    background: linear-gradient(135deg, #0A0A0F, #050510);
 }
 
-.ds-footer a {
-    color: #5A5A72;
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--ds-spacing-md);
+    text-align: center;
+}
+
+.footer-brand h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff, #A0A0B0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 4px;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--ds-spacing-lg);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: color 0.3s;
+    font-size: 0.8rem;
 }
 
-.ds-footer a:hover {
-    color: var(--ds-primary);
+.footer-links a:hover {
+    color: var(--ds-primary-light);
+}
+
+.footer-social {
+    display: flex;
+    gap: var(--ds-spacing-md);
+    justify-content: center;
+}
+
+.footer-social a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: white;
+    background: var(--ds-primary);
+    transform: translateY(-3px);
+}
+
+.footer-copyright p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.7rem;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-    .ds-nav-links {
-        position: fixed;
-        top: 72px;
-        right: 20px;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: var(--ds-glass-blur);
-        flex-direction: column;
-        gap: 8px;
-        padding: 16px 20px;
-        border-radius: 20px;
-        display: none;
-        text-align: center;
-        box-shadow: var(--ds-shadow-lg);
-        min-width: 160px;
-        z-index: 999;
-    }
-    
-    body.dark .ds-nav-links {
-        background: rgba(20, 20, 35, 0.95);
-    }
-    
-    .ds-nav-links.show {
-        display: flex;
-    }
-    
-    .ds-nav-links a {
-        width: 100%;
-        text-align: center;
-    }
-    
     .ds-hero-content {
         flex-direction: column;
         text-align: center;
@@ -822,6 +918,10 @@ body.dark .ds-footer {
         width: 220px;
         height: 220px;
         margin-top: var(--ds-spacing-lg);
+    }
+    
+    .hero-buttons {
+        justify-content: center;
     }
     
     .ds-contact-grid {
@@ -843,5 +943,20 @@ body.dark .ds-footer {
     
     html {
         scroll-padding-top: 70px;
+    }
+    
+    .news-ticker {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 12px;
+    }
+    
+    .ticker-label {
+        margin-bottom: 8px;
+    }
+    
+    .ticker-wrapper {
+        width: 100%;
+        margin-right: 0;
     }
 }
