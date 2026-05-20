@@ -13,18 +13,15 @@
     <style>
         @font-face {
             font-family: 'KAT';
-            src: url('fonts/KAT.otf') format('truetype');
+            src: url('fonts/KAT.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
         
-        @font-face {
-            font-family: 'KAT';
-            src: url('fonts/KAT.otf') format('truetype');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
+        /* تأكد من تطبيق الخط على جميع العناصر */
+        body, h1, h2, h3, h4, p, a, button, input, textarea, .ds-btn, .ds-card, .ds-nav-links a {
+            font-family: 'KAT', 'Inter', 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif !important;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
