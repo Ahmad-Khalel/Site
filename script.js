@@ -217,7 +217,7 @@ animatedUnderlines.forEach(underline => {
 const updateContactLinks = () => {
     const whatsappSpan = document.getElementById('whatsappDisplay');
     if (whatsappSpan) {
-        whatsappSpan.innerHTML = '<a href="https://wa.me/963964862330" target="_blank" style="color: var(--ds-primary); text-decoration: none;">+963 964 862 330</a>';
+        whatsappSpan.innerHTML = '<a href="https://wa.me/963964682330" target="_blank" style="color: var(--ds-primary); text-decoration: none;">+963 964 682 330</a>';
     }
     
     const telegramSpan = document.getElementById('telegramDisplay');
